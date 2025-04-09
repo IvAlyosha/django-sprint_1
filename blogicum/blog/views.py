@@ -54,13 +54,14 @@ def index(request):
 
 def post_detail(request, id):
 
-    context = {'posts': posts[id]}
+    context = {'posts': posts[id], 'lines': posts[id]['text'].splitlines()}
     template = 'blog/detail.html'
 
     return render(request, template, context) 
 
-def category_posts(request, category_slug):    
+def category_posts(request, category_slug):
+        
     template = 'blog/category.html'
     context = {'category_slug': category_slug}
     return render(request, template, context) 
-# Create your views here.
+

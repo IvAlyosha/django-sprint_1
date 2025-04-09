@@ -1,10 +1,8 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}
-{{ posts.location }}.{{ posts.date }}
+  {{ posts.location }}.{{ posts.date }}
 {% endblock %}
 {% block content %}
-<div class="container py-5">
   <article>
     <ul>
       <li>
@@ -14,13 +12,16 @@
         Дата: {{ posts.date }}
       </li>
       <li>
-        Категория: <a href={% url 'blog:category_posts' category_slug=posts.category %}>{{ posts.category }}</a>
+        Категория: 
+        <a href={% url 'blog:category_posts' category_slug=posts.category %}>
+          {{ posts.category }}</a>
       </li>
     </ul>         
     <p>
-      {{ posts.text }}
+      {% for line in lines %}
+      {{ line }}<br/>
+      {% endfor %}
     </p>          
   </article>                
-</div>
 {% endblock %}
   

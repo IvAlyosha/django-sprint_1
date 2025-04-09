@@ -29,6 +29,10 @@ ALLOWED_HOSTS = []
 
 TEMPLATES_DIR = BASE_DIR / 'templates'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'templates',
+] 
+
 
 # Application definition
 
