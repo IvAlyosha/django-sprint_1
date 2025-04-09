@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
 
 posts = [
     {
@@ -43,25 +41,22 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-]
- 
+] 
 
 def index(request):
 
     template = 'blog/index.html'
     context = {'posts': posts}
-    return render(request, template, context) 
+    return render(request, template, context)
 
 def post_detail(request, id):
 
     context = {'post': posts[id], 'lines': posts[id]['text'].splitlines()}
     template = 'blog/detail.html'
-
     return render(request, template, context) 
 
 def category_posts(request, category_slug):
         
     template = 'blog/category.html'
     context = {'category_slug': category_slug}
-    return render(request, template, context) 
-
+    return render(request, template, context)
