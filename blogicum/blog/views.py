@@ -46,6 +46,7 @@ posts = [
 
 posts_dict = {post['id']: post for post in posts}
 
+
 def index(request):
     return render(request, "blog/index.html", {"posts": posts})
 
