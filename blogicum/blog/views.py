@@ -54,7 +54,7 @@ def index(request):
 def post_detail(request, post_id):
     post = posts_dict.get(post_id)
     if post is None:
-        raise Http404("Пост не найден. Такой страницы не существует")
+        raise Http404(f"Пост не найден. {post_id} страницы не существует")
     return render(request, "blog/detail.html", {"post": post})
 
 
